@@ -12,18 +12,17 @@ namespace Main.Scripts
         [SerializeField] private MovingObjectBase[] _movingObjects;
         [SerializeField] private BoxCollider2D _spawnAreaBox;
 
-        public static ObjectSpawner Instance { get; private set; }
-
-        private void Awake()
-        {
-            if (!Instance && Instance != this)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-        }
+        // public static ObjectSpawner Instance { get; private set; }
+        //
+        // private void Awake()
+        // {
+        //     if (Instance != null && Instance != this)
+        //     {
+        //         Destroy(gameObject);
+        //         return;
+        //     }
+        //     Instance = this;
+        // }
 
         public void SpawnNewObject(InputAction.CallbackContext obj)
         {
