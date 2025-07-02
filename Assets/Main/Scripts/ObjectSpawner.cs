@@ -12,6 +12,18 @@ namespace Main.Scripts
         [SerializeField] private MovingObjectBase[] _movingObjects;
         [SerializeField] private BoxCollider2D _spawnAreaBox;
 
+        // public static ObjectSpawner Instance { get; private set; }
+        //
+        // private void Awake()
+        // {
+        //     if (Instance != null && Instance != this)
+        //     {
+        //         Destroy(gameObject);
+        //         return;
+        //     }
+        //     Instance = this;
+        // }
+
         public void SpawnNewObject(InputAction.CallbackContext obj)
         {
             var spawnPositon = GetRandomPointInSpawnerBoxCollider();
@@ -19,12 +31,12 @@ namespace Main.Scripts
             var prefabIndex = Random.Range(0, _movingObjects.Length);
             Instantiate(_movingObjects[prefabIndex], spawnPositon, Quaternion.identity);
         }
-        
+
         private Vector2 GetRandomPointInSpawnerBoxCollider()
         {
             Vector2 min = _spawnAreaBox.bounds.min;
             Vector2 max = _spawnAreaBox.bounds.max;
-            
+
             return new Vector2(Random.Range(min.x, max.x), Random.Range(min.y, max.y));
         }
     }

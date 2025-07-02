@@ -17,12 +17,7 @@ namespace Main.Scripts.MovableObjects
         
         protected override void ChangeOnBounce()
         {
-            ++_currentIndex;
-            if (_currentIndex >= _shapes.Length)
-            {
-                _currentIndex = 0;
-            }
-            
+            _currentIndex = Utilities.GetNextIndex(_currentIndex, _shapes.Length);
             _spriteRenderer.sprite = _shapes[_currentIndex];
         }
     }

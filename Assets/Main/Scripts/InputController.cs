@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Main.Scripts
@@ -19,7 +18,7 @@ namespace Main.Scripts
         {
             if (_inputActions == null) return;
             
-            _inputActions.Gameplay.Spawn.performed += _objectSpawner.SpawnNewObject;
+            _inputActions.Gameplay.Spawn.performed -= _objectSpawner.SpawnNewObject;
             _inputActions?.Disable();
         }
     }

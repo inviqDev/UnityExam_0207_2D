@@ -34,12 +34,7 @@ namespace Main.Scripts.MovableObjects
 
         protected override void ChangeOnBounce()
         {
-            ++_currentIndex;
-            if (_currentIndex >= _colors.Length)
-            {
-                _currentIndex = 0;
-            }
-            
+            _currentIndex = Utilities.GetNextIndex(_currentIndex, _colors.Length);
             _spriteRenderer.color = _colors[_currentIndex];
         }
     }
